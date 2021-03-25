@@ -18,12 +18,12 @@ def explorer(win = curses.initscr()):
 		files = os.listdir(path)
 		win.clear()
 		win.addnstr(0,0,path,256, curses.color_pair(3))
-		for i in range(len(files)):
+		for i in range(onfile,len(files)):
 			if i == 30: break
-			if i == onfile: win.addnstr(i+1,0,files[i],10, curses.color_pair(1))
-			else: win.addnstr(i+1,0,files[i],10)
-			if os.path.isdir(f'{path}/{files[i]}/'): win.addnstr(i+1,15,'	Directory\n', 21)
-			else: win.addnstr(i+1,15,'	File\n',15)
+			if i == onfile: win.addnstr((i-onfile)+1,0,files[i],10, curses.color_pair(1))
+			else: win.addnstr((i-onfile)+1,0,files[i],10)
+			if os.path.isdir(f'{path}/{files[i]}/'): win.addnstr((i-onfile)+1,15,'	Directory\n', 21)
+			else: win.addnstr((i-onfile)+1,15,'	File\n',15)
 			if notADir: win.addnstr(30,30,'NOT A DIRECTORY',25, curses.color_pair(2))
 		
 		char = ''
