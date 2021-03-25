@@ -19,7 +19,7 @@ def explorer(win = curses.initscr()):
 		win.clear()
 		win.addnstr(0,0,path,256, curses.color_pair(3))
 		for i in range(onfile,len(files)):
-			if i == 30: break
+			if i-onfile == 30: break
 			if i == onfile: win.addnstr((i-onfile)+1,0,files[i],10, curses.color_pair(1))
 			else: win.addnstr((i-onfile)+1,0,files[i],10)
 			if os.path.isdir(f'{path}/{files[i]}/'): win.addnstr((i-onfile)+1,15,'	Directory\n', 21)
