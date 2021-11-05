@@ -82,7 +82,7 @@ def explorer(win = curses.initscr()):
 				win.addnstr(41,0,
 					'NOT A DIRECTORY',25, 
 					curses.color_pair(2))
-			win.addnstr(42,0,
+			win.addnstr(os.get_terminal_size()[1]-1,0,
 				'Go back a dir[LeftArrow] Enter selected dir[RightArrow] Move up [UpArrow] Move down [DownArrow] Exit [Esc]',256,curses.color_pair(3))
 		char = ''
 		
